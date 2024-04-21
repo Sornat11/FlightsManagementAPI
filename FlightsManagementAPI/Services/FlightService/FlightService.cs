@@ -1,26 +1,29 @@
 ﻿
+using FlightsManagementAPI.Data;
+using FlightsManagementAPI.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace FlightsManagementAPI.Services.FlightService
 {
     public class FlightService : IFlightService
     {
-        private static List<Flight> flights = new List<Flight>
-            {
-                new Flight { Id = 1, FlightNumber = "AA123", DepartureDate = DateTime.Now.AddDays(1), DeparturePlace = "New York", ArrivalPlace = "Los Angeles", AircraftType = "Boeing 737" },
-                new Flight { Id = 2, FlightNumber = "BA456", DepartureDate = DateTime.Now.AddDays(2), DeparturePlace = "London", ArrivalPlace = "Paris", AircraftType = "Airbus A320" },
-                new Flight { Id = 3, FlightNumber = "DL789", DepartureDate = DateTime.Now.AddDays(3), DeparturePlace = "Tokyo", ArrivalPlace = "Dubai", AircraftType = "Boeing 777" },
-                new Flight { Id = 4, FlightNumber = "EK101", DepartureDate = DateTime.Now.AddDays(4), DeparturePlace = "Sydney", ArrivalPlace = "Singapore", AircraftType = "Airbus A380" },
-                new Flight { Id = 5, FlightNumber = "LH202", DepartureDate = DateTime.Now.AddDays(5), DeparturePlace = "Beijing", ArrivalPlace = "Moscow", AircraftType = "Boeing 747" }
-            };
+        private readonly DataContext _context;
 
-        public List<Flight> AddFlight(Flight flight)
+        public FlightService(DataContext context)
         {
-            flights.Add(flight);
-            return flights;
+            _context = context;
         }
 
-        public List<Flight>? UpdateFlight(int id, Flight request)
+        public async  Task<List<Flight>> AddFlight(Flight flight)
         {
-            var flight = flights.Find(x => x.Id == id);
+            _context.Flights.Add(flight);
+            await _context.SaveChangesAsync();
+            return await _context.Flights.ToListAsync();
+        }
+
+        public async Task<List<Flight>?> UpdateFlight(int id, Flight request)
+        {
+            var flight = await _context.Flights.FindAsync(id);
             if (flight is null)
                 return null;
 
@@ -30,31 +33,35 @@ namespace FlightsManagementAPI.Services.FlightService
             flight.DeparturePlace = request.DeparturePlace;
             flight.AircraftType = request.AircraftType;
 
+            await _context.SaveChangesAsync();  
+
+            return await _context.Flights.ToListAsync();
+        }
+
+        public async Task<List<Flight>> GetAllFlights()
+        {
+            var flights = await _context.Flights.ToListAsync();
             return flights;
         }
 
-        public List<Flight> GetAllFlights()
+        public async Task<Flight?> GetFlight(int id)
         {
-            return flights;
-        }
-
-        public Flight GetFlight(int id)
-        {
-            var flight = flights.Find(x => x.Id == id);
+            var flight = await _context.Flights.FindAsync(id);
             if (flight is null)
                 return null;
             return flight;
         }
 
-        public List<Flight>? DeleteFlight(int id)
+        public async Task<List<Flight>?> DeleteFlight(int id)
         {
-            var flight = flights.Find(x => x.Id == id);
+            var flight = await _context.Flights.FindAsync(id);
             if (flight is null)
                 return null;
 
-            flights.Remove(flight);
+            _context.Flights.Remove(flight);
+            await _context.SaveChangesAsync();
 
-            return flights;
+            return await _context.Flights.ToListAsync();
         }
     }
     }

@@ -1,4 +1,6 @@
-global using FlightsManagementAPI.Models;
+using FlightsManagementAPI.Models;
+using Microsoft.EntityFrameworkCore;
+using FlightsManagementAPI.Data;
 using FlightsManagementAPI.Services.FlightService;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +12,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IFlightService, FlightService>();
+
+builder.Services.AddDbContext<DataContext>();
 
 var app = builder.Build();
 

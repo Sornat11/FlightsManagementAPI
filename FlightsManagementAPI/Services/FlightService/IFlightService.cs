@@ -1,13 +1,15 @@
-﻿namespace FlightsManagementAPI.Services.FlightService
+﻿using FlightsManagementAPI.Models;
+
+namespace FlightsManagementAPI.Services.FlightService
 {
     public interface IFlightService
     {
-        List<Flight> GetAllFlights();
-        Flight GetFlight(int id);
-        List<Flight> AddFlight(Flight flight);
-        List<Flight>? UpdateFlight(int id, Flight request);
+        Task<List<Flight>> GetAllFlights();
+        Task<Flight?> GetFlight(int id);
+        Task<List<Flight>> AddFlight(Flight flight);
+        Task<List<Flight>?> UpdateFlight(int id, Flight request);
 
-        List<Flight>? DeleteFlight(int id);
+        Task<List<Flight>?> DeleteFlight(int id);
 
     }
 }
