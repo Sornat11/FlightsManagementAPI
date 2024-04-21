@@ -1,5 +1,6 @@
 ﻿using FlightsManagementAPI.Models;
 using FlightsManagementAPI.Services.FlightService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +18,7 @@ namespace FlightsManagementAPI.Controllers
             _flightService = flightService;
         }
 
-        [HttpGet]
+        [HttpGet, Authorize(Roles = "Admin")]
         public async Task<ActionResult<List<Flight>>> GetAllFlights()
         {
 
@@ -25,7 +26,7 @@ namespace FlightsManagementAPI.Controllers
             return await _flightService.GetAllFlights();
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}"), Authorize(Roles = "Admin")]
         public async Task<ActionResult<Flight>> GetFlight(int id)
         {
             var result = await _flightService.GetFlight(id);
@@ -35,14 +36,14 @@ namespace FlightsManagementAPI.Controllers
             return Ok(result);
         }
 
-        [HttpPost]
+        [HttpPost, Authorize(Roles = "Admin")]
         public async Task<ActionResult<List<Flight>>> AddFlight(Flight flight)
         {
             var result = await _flightService.AddFlight(flight);
             return Ok(result);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id}"), Authorize(Roles = "Admin")]
         public async Task<ActionResult<List<Flight>>> UpdateFlight(int id, Flight request)
         {
             var result = await _flightService.UpdateFlight(id, request);
@@ -53,7 +54,7 @@ namespace FlightsManagementAPI.Controllers
             return Ok(result);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}"), Authorize(Roles = "Admin")]
         public async Task<ActionResult<List<Flight>>> DeleteFlight(int id)
         {
             var result = await _flightService.DeleteFlight(id);
