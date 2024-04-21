@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "ksYLmA9hVJEjV/CdZ/qYywoZ0+dZf7jkZRlp7jAf8Gk=",
+  "Source": "FlightsManagementAPI",
+  "BasePath": "_content/FlightsManagementAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
