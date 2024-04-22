@@ -31,7 +31,8 @@ cd FlightManagementAPI
 dotnet restore
 
 ### Apply the EF Core migrations to your database
-dotnet ef database update (Make sure that "DefaultConnection": "Server=[Your Server Name];Database=FlightsDB;Trusted_Connection=true;TrustServerCertificate=true;")
+dotnet ef database update 
+(Make sure that in appsettings: "DefaultConnection": "Server=[Your Server Name];Database=FlightsDB;Trusted_Connection=true;TrustServerCertificate=true;")
 
 ### Build the project
 dotnet build
