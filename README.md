@@ -19,7 +19,7 @@ Before you begin, ensure you have the following installed:
 - [.NET SDK](https://dotnet.microsoft.com/download) (version specific to the project requirements)
 - An appropriate IDE, such as [Visual Studio](https://visualstudio.microsoft.com/vs/) 
 - [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
-- [SQL Server Management Studio] (https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)
+-  ([SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16))
 
 ### Clone the project repository to your local machine using Git
 git clone https://github.com/yourgithub/flight-management-api.git
