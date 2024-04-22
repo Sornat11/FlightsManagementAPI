@@ -41,7 +41,7 @@ namespace FlightsManagementAPI.Tests
         public async Task Register_WithInvalidUsernameLength_ReturnsBadRequest()
         {
             // Arrange
-            var invalidUser = new UserDto { Username = "usr", Password = "ValidPass123!" };  // Za krótka nazwa u¿ytkownika
+            var invalidUser = new UserDto { Username = "usr", Password = "ValidPass123!" };  // too short Username
             _controller.ModelState.AddModelError("Username", "Username must be between 5 and 20 characters.");
 
             // Act

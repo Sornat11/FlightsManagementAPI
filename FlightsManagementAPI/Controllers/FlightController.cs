@@ -17,7 +17,7 @@ namespace FlightsManagementAPI.Controllers
         {
             _flightService = flightService;
         }
-        [HttpGet, Authorize(Roles = "Admin")]
+
         [HttpGet, Authorize(Roles = "Admin")]
         public async Task<ActionResult<List<Flight>>> GetAllFlights()
         {
@@ -72,6 +72,5 @@ namespace FlightsManagementAPI.Controllers
 
             return Ok(result);
         }
-
     }
 }
