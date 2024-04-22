@@ -16,7 +16,7 @@ To get a local copy up and running, follow these simple steps.
 ### Prerequisites
 
 Before you begin, ensure you have the following installed:
-- [.NET SDK](https://dotnet.microsoft.com/download) (version specific to the project requirements)
+- [.NET 8](https://dotnet.microsoft.com/download) (version specific to the project requirements)
 - An appropriate IDE, such as [Visual Studio](https://visualstudio.microsoft.com/vs/) 
 - [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 -  [SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)
@@ -31,7 +31,7 @@ cd FlightManagementAPI
 dotnet restore
 
 ### Apply the EF Core migrations to your database
-dotnet ef database update
+dotnet ef database update (Make sure that "DefaultConnection": "Server=Your Server Name;Database=FlightsDB;Trusted_Connection=true;TrustServerCertificate=true;")
 
 ### Build the project
 dotnet build
