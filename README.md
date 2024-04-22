@@ -32,7 +32,7 @@ dotnet restore
 
 ### Apply the EF Core migrations to your database
 
-####(Make sure that in appsettings: "DefaultConnection": "Server=[Your Server Name];Database=FlightsDB;Trusted_Connection=true;TrustServerCertificate=true;")
+Make sure that in appsettings: "DefaultConnection": "Server=[Your Server Name];Database=FlightsDB;Trusted_Connection=true;TrustServerCertificate=true;")
 
 dotnet ef database update 
 
