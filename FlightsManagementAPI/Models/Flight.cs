@@ -10,6 +10,7 @@ namespace FlightsManagementAPI.Models
         [RegularExpression(@"^[A-Za-z]{2}\d{3}$", ErrorMessage = "Flight number format should be like 'AB123'.")]
         public string? FlightNumber { get; set; }
 
+        [DataType(DataType.Date)]
         [Required(ErrorMessage = "Departure date is required.")]
         [FutureDate(ErrorMessage = "Departure date must be in the future.")]
         public DateTime DepartureDate { get; set; }

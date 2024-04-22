@@ -20,17 +20,28 @@ namespace FlightsManagementAPI.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register(UserDto request)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState); 
+            }
+
             var user = await _authService.Register(request);
             if (user == null)
             {
                 return BadRequest("Registration failed.");
             }
+
             return Ok(user);
         }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserDto request)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             var token = await _authService.Login(request);
             if (token == null)
             {

@@ -17,13 +17,16 @@ namespace FlightsManagementAPI.Controllers
         {
             _flightService = flightService;
         }
-
+        [HttpGet, Authorize(Roles = "Admin")]
         [HttpGet, Authorize(Roles = "Admin")]
         public async Task<ActionResult<List<Flight>>> GetAllFlights()
         {
-
-            
-            return await _flightService.GetAllFlights();
+            var flights = await _flightService.GetAllFlights();
+            if (flights == null || flights.Count == 0)
+            {
+                return NotFound("No flights found.");
+            }
+            return Ok(flights);
         }
 
         [HttpGet("{id}"), Authorize(Roles = "Admin")]
@@ -39,6 +42,11 @@ namespace FlightsManagementAPI.Controllers
         [HttpPost, Authorize(Roles = "Admin")]
         public async Task<ActionResult<List<Flight>>> AddFlight(Flight flight)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             var result = await _flightService.AddFlight(flight);
             return Ok(result);
         }
