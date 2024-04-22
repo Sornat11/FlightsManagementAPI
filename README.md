@@ -11,15 +11,29 @@ This repository contains the Flight Management API, an ASP.NET Core application 
 
 ## Getting Started
 
-To get a local copy up and running follow these simple steps:
+To get a local copy up and running, follow these simple steps.
 
 ### Prerequisites
 
-- .NET SDK
-- An IDE like Visual Studio or VSCode
+Before you begin, ensure you have the following installed:
+- [.NET SDK](https://dotnet.microsoft.com/download) (version specific to the project requirements)
+- An appropriate IDE, such as [Visual Studio](https://visualstudio.microsoft.com/vs/) 
+- [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 
-### Installation
+# Clone the project repository to your local machine using Git
+git clone https://github.com/yourgithub/flight-management-api.git
 
-1. Clone the repo
-   ```sh
-   git clone https://github.com/yourgithub/flight-management-api.git
+# Navigate into the project directory
+cd flight-management-api
+
+# Restore all NuGet packages required by the project
+dotnet restore
+
+# Apply the EF Core migrations to your database
+dotnet ef database update
+
+# Build the project
+dotnet build
+
+# Run the project
+dotnet run
