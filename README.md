@@ -24,7 +24,7 @@ Before you begin, ensure you have the following installed:
 git clone https://github.com/yourgithub/flight-management-api.git
 
 ### Navigate into the project directory
-cd flight-management-api
+cd FlightManagementAPI
 
 ### Restore all NuGet packages required by the project
 dotnet restore
