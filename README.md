@@ -16,7 +16,7 @@ To get a local copy up and running, follow these simple steps.
 ### Prerequisites
 
 Before you begin, ensure you have the following installed:
-- [.NET 8](https://dotnet.microsoft.com/download) (version specific to the project requirements)
+- [.NET 8](https://dotnet.microsoft.com/download) 
 - An appropriate IDE, such as [Visual Studio](https://visualstudio.microsoft.com/vs/) 
 - [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 -  [SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)
