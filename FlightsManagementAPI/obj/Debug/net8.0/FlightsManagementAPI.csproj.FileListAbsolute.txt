@@ -138,3 +138,4 @@ C:\Users\Sornat\Desktop\FlightsManagementAPI\FlightsManagementAPI\bin\Debug\net8
 C:\Users\Sornat\Desktop\FlightsManagementAPI\FlightsManagementAPI\bin\Debug\net8.0\Scrutor.dll
 C:\Users\Sornat\Desktop\FlightsManagementAPI\FlightsManagementAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.dll
 C:\Users\Sornat\Desktop\FlightsManagementAPI\FlightsManagementAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+C:\Users\Sornat\Desktop\FlightsManagementAPI\FlightsManagementAPI\obj\Debug\net8.0\FlightsManagementAPI.sourcelink.json

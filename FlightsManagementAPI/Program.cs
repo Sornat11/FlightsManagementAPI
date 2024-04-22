@@ -1,5 +1,3 @@
-using FlightsManagementAPI.Models;
-using Microsoft.EntityFrameworkCore;
 using FlightsManagementAPI.Data;
 using FlightsManagementAPI.Services.FlightService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -8,6 +6,7 @@ using System.Text;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using FlightsManagementAPI.Services.AuthService;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,8 +42,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-builder.Services.AddDbContext<DataContext>();
-
+builder.Services.AddDbContext<DataContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 var app = builder.Build();
 
 DataSeeder.Initialize(app.Services);

@@ -153,3 +153,4 @@ C:\Users\Sornat\Desktop\FlightsManagementAPI\FlightsManagementAPI.Tests\obj\Debu
 C:\Users\Sornat\Desktop\FlightsManagementAPI\FlightsManagementAPI.Tests\obj\Debug\net8.0\FlightsManagementAPI.Tests.pdb
 C:\Users\Sornat\Desktop\FlightsManagementAPI\FlightsManagementAPI.Tests\obj\Debug\net8.0\FlightsManagementAPI.Tests.genruntimeconfig.cache
 C:\Users\Sornat\Desktop\FlightsManagementAPI\FlightsManagementAPI.Tests\obj\Debug\net8.0\ref\FlightsManagementAPI.Tests.dll
+C:\Users\Sornat\Desktop\FlightsManagementAPI\FlightsManagementAPI.Tests\obj\Debug\net8.0\FlightsManagementAPI.Tests.sourcelink.json

@@ -1,8 +1,6 @@
-﻿
-using FlightsManagementAPI.Models;
+﻿using FlightsManagementAPI.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using System.Reflection.Emit;
+
 
 namespace FlightsManagementAPI.Data
 {
@@ -15,9 +13,17 @@ namespace FlightsManagementAPI.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Server=.\\SQLExpress;Database=FlightsDB;Trusted_Connection=true;TrustServerCertificate=true;");
+            if (!optionsBuilder.IsConfigured)
+            {
+                IConfigurationRoot configuration = new ConfigurationBuilder()
+                   .SetBasePath(Directory.GetCurrentDirectory())
+                   .AddJsonFile("appsettings.json")
+                   .Build();
+                var connectionString = configuration.GetConnectionString("DefaultConnection");
+                optionsBuilder.UseSqlServer(connectionString);
+            }
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasNoKey();

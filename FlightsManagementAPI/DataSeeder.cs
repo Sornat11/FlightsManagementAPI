@@ -1,7 +1,6 @@
 ﻿using FlightsManagementAPI.Models;
 using FlightsManagementAPI.Data;
-using Microsoft.Extensions.DependencyInjection;
-using System.Linq;
+
 
 public class DataSeeder
 {
