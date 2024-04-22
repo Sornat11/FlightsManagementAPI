@@ -9,9 +9,6 @@ This repository contains the Flight Management API, an ASP.NET Core application 
 - **Data Validation**: Input validation to ensure accurate and reliable data entry.
 - **ORM with Entity Framework**: Utilize Entity Framework for data handling.
 
-## Getting Started
-
-To get a local copy up and running, follow these simple steps.
 
 ### Prerequisites
 
